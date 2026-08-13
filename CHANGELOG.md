@@ -16,6 +16,10 @@ All notable public releases of AI Companion Time Anchor are documented here.
 - Reorganized the repository so each audience has a self-contained folder: the Codex/GPT edition stays at the repository root (install flow unchanged), with `claude-code/` and `web/` as siblings.
 - Both desktop editions display local time as a fixed UTC+8 "Taipei" label; wall-clock values are unchanged.
 
+### Fixed
+
+- The Chinese time detector no longer treats a bare `<数字>点` as a clock time, so quantity/degree phrases such as "有一点难受", "有两点问题", and "一点也不慢" stop triggering the time attention cue. A `点` now requires a clock completion (`半` / `钟` / `<数字>分`); time-of-day words (`凌晨` / `下午` / `晚上` …) still surface times like "凌晨两点". Fixed in both the Codex and Claude Code copies, with `tests/test_time_expression.py` guarding both against drift.
+
 ## [2.0.1] - 2026-08-13
 
 ### Fixed
