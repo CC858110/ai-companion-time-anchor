@@ -2,6 +2,20 @@
 
 All notable public releases of AI Companion Time Anchor are documented here.
 
+## [Desktop & Web editions] - 2026-08-13
+
+### Added
+
+- **Claude Code edition** (`claude-code/`): a port of the Codex hook + skill to Claude Code. The `UserPromptSubmit` hook writes snapshots under `~/.claude`; the active reader resolves the current conversation from the freshest hook snapshot instead of `CODEX_THREAD_ID`. It stays silent inside git projects so it does not interrupt coding, with `TIME_ANCHOR_FORCE` / `TIME_ANCHOR_DISABLE` overrides.
+- **Pure-skill web edition** (`web/`): a hook-free, file-free, script-free `SKILL.md` for cloud chat environments (Claude web / Home, web GPT). Time is obtained via an available tool or user mention, and the interval is held in-conversation rather than by a hook snapshot.
+- Guidance in `claude-code/README.md` on coexisting hooks: a reusable "gate" pattern that scopes a second `UserPromptSubmit` plugin to a single context (e.g. coding-only), and a note on why unclassified multi-hook injection can worsen hallucination.
+- An AI-reader callout across the READMEs so an assistant reading the repo on a beginner's behalf proactively picks the right edition, prompts a restart, and gates coexisting hooks.
+
+### Changed
+
+- Reorganized the repository so each audience has a self-contained folder: the Codex/GPT edition stays at the repository root (install flow unchanged), with `claude-code/` and `web/` as siblings.
+- Both desktop editions display local time as a fixed UTC+8 "Taipei" label; wall-clock values are unchanged.
+
 ## [2.0.1] - 2026-08-13
 
 ### Fixed
