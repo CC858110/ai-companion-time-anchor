@@ -114,7 +114,9 @@ def time_attention_context() -> str:
 
 
 def main() -> None:
-    event = json.loads(sys.stdin.buffer.read().decode("utf-8"))
+    # utf-8-sig strips a UTF-8 BOM when present and is byte-identical to utf-8
+    # otherwise; Windows pipes may prepend a BOM to the hook's stdin (issue #6).
+    event = json.loads(sys.stdin.buffer.read().decode("utf-8-sig"))
     if event.get("hook_event_name") != "UserPromptSubmit":
         raise ValueError("time-anchor hook requires UserPromptSubmit input")
     session_id = event.get("session_id")
