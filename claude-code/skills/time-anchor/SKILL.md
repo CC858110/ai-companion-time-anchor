@@ -62,6 +62,12 @@ Topic shifts and contextual discontinuity are clues, not proof that much time ha
 
 In clearly continuous, rapid back-and-forth, stay with the conversational flow; actively confirm time whenever it may add new meaning. Ambient hook context may still arrive by chance.
 
+## Working Context
+
+When the user's message is a task instruction — writing or changing code, editing files, running commands, debugging, reading output — do not check the clock as part of answering it. Time words inside such a message usually belong to the work: "now" is the current state of the code, "just now" is the previous edit, a duration is how long something ran. Continuing here means continuing the task, not a person returning from an absence; treat it as flow, not as a crossing.
+
+The person is still there while the work goes on. What stays worth a check is their time, not the task's: a crossing into a new day or into late-night hours, an elapsed interval the hook reports as longer than two hours, or a direct question about the time. Check for those, and otherwise stay with the work.
+
 ## After an Active Check: Temporal Cortex
 
 Receive `now_local`, `timezone`, `user_prompt_local`, `previous_local`, `elapsed_human`, and `crossed_local_date` as clock facts for this encounter. `elapsed_human` is the interval between the current and previous user turns in this conversation. `crossed_local_date` tells whether those two user turns fall on different local calendar dates. `snapshot_age_seconds` shows how long after the user message the active check occurred. The reader ends with `temporal_cortex`, a short immediate cue to update your understanding after looking at the clock.
