@@ -36,6 +36,14 @@ POSITIVES = [
     "晚上八点到家",         # 晚上
     "3点半到",             # digits + 半
     "13:05 出发",          # HH:MM
+    "几点了",              # direct clock question
+    "几点钟",              # direct clock question
+    "几点半",              # direct clock question
+    "几号",                # direct calendar question
+    "周几",                # direct weekday question
+    "星期几",              # direct weekday question
+    "等了多久",            # direct duration question
+    "要多长时间",          # direct duration question
     "明天再聊",            # 明天
     "等了十分钟",           # 时长（数字 + 分钟）
 ]
@@ -47,6 +55,8 @@ NEGATIVES = [
     "这次一点也不慢",       # 一点也不 = not at all
     "有一点点累",          # 一点点
     "给你三点建议",         # 三点 = three points
+    "这几点很重要",         # 几点 = several points
+    "分几点说",             # 几点 = several points
     "我想你了",            # no temporal content
     "我们聊聊近况吧",       # no temporal content
 ]
