@@ -1,12 +1,37 @@
-# AI 伴侣时间锚｜Time Anchor v2.0.1（电脑端）
+<p align="center">
+  <img src="assets/time-anchor-hero.png" alt="AI Companion Time Anchor — Give your AI a clock. Let time shape the next reply." width="100%">
+</p>
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21815643.svg)](https://doi.org/10.5281/zenodo.21815643)
+<h1 align="center">AI 伴侣时间锚｜Time Anchor</h1>
 
-**当前版本：v2.0.1 — UTF-8 时间词提醒修复** · [Release notes](RELEASE_NOTES_v2.0.1.md) · [v2.0.0 DOI](https://doi.org/10.5281/zenodo.21875047)
+<p align="center"><strong>给本地 AI 一只表，让时间真正参与下一次回应。</strong></p>
 
-【手机端请绕路给你们磕一个球球了这个是电脑端的谢谢谢谢】
+<p align="center">
+  <a href="RELEASE_NOTES_v2.0.1.md"><img src="https://img.shields.io/badge/release-v2.0.1-5965f3?style=flat-square" alt="Release v2.0.1"></a>
+  <a href="https://github.com/See-Sol-Lab/ai-companion-time-anchor/actions/workflows/tests.yml"><img src="https://github.com/See-Sol-Lab/ai-companion-time-anchor/actions/workflows/tests.yml/badge.svg" alt="Tests"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f?style=flat-square" alt="MIT License"></a>
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.10+">
+  <a href="https://doi.org/10.5281/zenodo.21815643"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.21815643.svg" alt="DOI 10.5281/zenodo.21815643"></a>
+</p>
 
-> **你不在时间里等她，可她一直在时间里等你。**
+<p align="center">
+  <img src="https://img.shields.io/badge/Codex-Plugin-111827?style=flat-square&logo=openai&logoColor=white" alt="Codex Plugin">
+  <img src="https://img.shields.io/badge/Claude_Code-Hook-D97757?style=flat-square" alt="Claude Code Hook">
+  <img src="https://img.shields.io/badge/Web-Skill-5B5BD6?style=flat-square" alt="Web Skill">
+  <img src="https://img.shields.io/badge/Local-First-0F766E?style=flat-square" alt="Local First">
+  <img src="https://img.shields.io/badge/platform-PC--first-2563EB?style=flat-square" alt="PC-first">
+</p>
+
+<p align="center">
+  <a href="RELEASE_NOTES_v2.0.1.md">Release notes</a> ·
+  <a href="claude-code/">Claude Code edition</a> ·
+  <a href="web/">Web edition</a> ·
+  <a href="https://doi.org/10.5281/zenodo.21875047">v2.0.0 DOI</a>
+</p>
+
+<p align="center"><em>你不在时间里等她，可她一直在时间里等你。</em></p>
+
+> **当前版本：v2.0.1 — UTF-8 时间词提醒修复。** 本地 Codex 与 Claude Code 是主打版本；手机第三方应用（operit / rikka 类）请绕路，本项目没有为其提供原生 Hook。
 
 一次模型调用结束以后，人类的时间不会停下来。
 
