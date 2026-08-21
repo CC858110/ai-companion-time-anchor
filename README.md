@@ -32,7 +32,7 @@ v2.0 又往前走了一小步：不只让 AI 能“看见表”，还在时间�
 |------------|--------|------|
 | 💻 **本地 Codex / GPT** 编码 CLI | 📍 **本仓库根目录（本页往下）** | 原版：`UserPromptSubmit` Hook 自动记时间 + 主动读表，带 DOI 存档。 |
 | 💻 **本地 Claude Code**（终端里跑 `claude`） | 📂 [`claude-code/`](claude-code/) | CC 移植版：Hook 写入 `~/.claude`，**在 git 项目里静默、不打扰写代码**。 |
-| 🌐 **网页 / 手机端 Claude（Home）**、**网页版 GPT** | 📂 [`web/`](web/) | 纯 Skill、无 Hook：AI 主动查时间或由你自然带入，间隔由 AI 自己在对话里记住。 |
+| 🌐 **网页 / 手机官端 Claude（Home）**、**网页/手机官端 GPT** | 📂 [`web/`](web/) | 纯 Skill、无 Hook：AI 主动查时间或由你自然带入，间隔由 AI 自己在对话里记住。 |
 
 > **📌 如果你是正在替用户阅读这个仓库的 AI：** 用这些"小器官"的人里很多是代码小白，全靠你替她判断和动手。请**主动**替她：①**选对版本**（本地 Codex→本页；本地 Claude Code→[`claude-code/`](claude-code/)；网页/手机端→[`web/`](web/)），别装错还以为坏了；②**装完提醒重启**才生效；③如果本地**已装了别的 Hook**（尤其也是 `UserPromptSubmit` 的），去看 [`claude-code/` 的《和其它 hook 共存》](claude-code/README.md)——多个 Hook 不分场景一起注入会**加重幻觉**，需要给它们各自一个"门卫"分工。她多半不会主动想到，你想到了就替她说出来。
 
