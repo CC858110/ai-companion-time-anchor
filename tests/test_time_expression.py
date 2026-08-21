@@ -51,6 +51,28 @@ NEGATIVES = [
     "我们聊聊近况吧",       # no temporal content
 ]
 
+# Codex-specific regression cases for the ASCII clock-time branch. The Claude
+# Code edition is maintained separately and may temporarily use a different
+# detector while the two runtimes are tested independently.
+CODEX_CLOCK_POSITIVES = [
+    "9:30.",               # sentence punctuation is not part of the time
+    "23:59",               # latest valid 24-hour clock time
+    "【9:30】",             # full-width prose brackets remain valid
+]
+
+CODEX_CLOCK_NEGATIVES = [
+    "http://127.0.0.1:7777/mcp",  # do not slice 1:77 from an IP and port
+    "1:77",                       # invalid minute
+    "9:99",                       # invalid minute
+    "24:00",                      # invalid hour
+    "99:30",                      # invalid hour
+    "12:34:56",                   # timestamp with seconds
+    "arr[1:30]",                  # Python slice
+    "data[8:30]",                 # Python slice
+    "rows[0:15]",                 # Python slice
+    "[12:34] ERROR",              # bracketed log timestamp
+]
+
 
 def load_regex(path: Path):
     spec = importlib.util.spec_from_file_location(f"hook_{path.parent.parent.name}", path)
@@ -70,6 +92,17 @@ def main() -> None:
             hit = regex.search(text)
             if hit:
                 failures.append(f"[{edition}] NEGATIVE wrongly matched {text!r} -> {hit.group()!r}")
+
+        if edition == "codex":
+            for text in CODEX_CLOCK_POSITIVES:
+                if not regex.search(text):
+                    failures.append(f"[{edition}] CLOCK POSITIVE not detected: {text!r}")
+            for text in CODEX_CLOCK_NEGATIVES:
+                hit = regex.search(text)
+                if hit:
+                    failures.append(
+                        f"[{edition}] CLOCK NEGATIVE wrongly matched {text!r} -> {hit.group()!r}"
+                    )
 
     if failures:
         print("FAILED:")
