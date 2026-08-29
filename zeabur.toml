@@ -1,0 +1,3 @@
+[build]
+# Build and run the online Time Anchor service from server/
+target = "./server"
