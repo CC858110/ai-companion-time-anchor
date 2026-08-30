@@ -100,7 +100,7 @@ app.post('/api/ambient', (req, res) => {
   }
   const { session_id, user_prompt, previous_local } = parsed.data;
   const now = isoLocal();
-  const prev = previousLocalOverride ?? sessions.get(sessionKey(session_id))?.last ?? null;
+  const prev = previous_local ?? sessions.get(sessionKey(session_id))?.last ?? null;
   const payload = buildAnchor(prev, now);
   const explicit = containsExplicitTime(user_prompt);
   const significant = payload.significant_gap || payload.crossed_local_date;
@@ -140,7 +140,9 @@ app.post('/api/interval', (req, res) => {
   });
 });
 
-app.get('/', (_req, res) => {
+// ===== 修复：根路径使用正确的 req 参数 =====
+app.get('/', (req, res) => {
+  const host = req.get('host') || 'localhost';
   res.type('text/plain').send(
     [
       'Time Anchor online service',
@@ -153,7 +155,7 @@ app.get('/', (_req, res) => {
       '  POST /api/interval        compute elapsed/crossed-date between two timestamps',
       '  POST /mcp                 MCP Streamable HTTP (JSON-RPC)',
       '',
-      'Try: curl -X POST ' + req.get('host') + '/api/check -H "Content-Type: application/json" -d \'{"session_id":"demo","user_prompt":"我回来了"}\'',
+      'Try: curl -X POST ' + host + '/api/check -H "Content-Type: application/json" -d \'{"session_id":"demo","user_prompt":"我回来了"}\'',
     ].join('\n')
   );
 });
